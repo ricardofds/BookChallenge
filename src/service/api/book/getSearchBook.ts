@@ -30,6 +30,9 @@ type TVolumeInfo = {
   canonicalVolumeLink: string;
   categories: string[];
   contentVersion: string;
+  description?: string;
+  authors?: string[];
+  pageCount?: number;
   imageLinks: {
     smallThumbnail: string;
     thumbnail?: string;
