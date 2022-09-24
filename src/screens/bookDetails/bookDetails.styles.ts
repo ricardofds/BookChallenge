@@ -46,6 +46,11 @@ const bookDetails = StyleSheet.create({
     width: 20,
     height: 20,
   },
+  favoriteImageTrue: {
+    width: 20,
+    height: 20,
+    tintColor: 'red',
+  },
 });
 
 export default bookDetails;

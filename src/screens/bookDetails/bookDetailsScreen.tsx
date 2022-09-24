@@ -1,4 +1,5 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import { useMMKVString } from 'react-native-mmkv';
 import {
   Text,
   View,
@@ -8,9 +9,11 @@ import {
   Pressable,
   Image,
   Linking,
+  ToastAndroid,
 } from 'react-native';
-import { HeartIcon } from '../../assets/image';
+import { HeartIcon, HeartRedIcon } from '../../assets/image';
 import BookDesign from '../../components/BookDesign/bookDesign';
+import { keysStorage } from '../../constants/storage';
 import {
   getDetailBook,
   IResponseGetDetailBook,
@@ -20,12 +23,62 @@ import { tagsHtmlRegex } from '../../util/regex.utils';
 
 import styles from './bookDetails.styles';
 
+type TFavoriteItem = {
+  id: string;
+  title: string;
+  image: string;
+};
+
 const BookDetailsScreen = ({ navigation, route: { params } }) => {
   const [bookResult, setBookResult] = useState<IResponseGetDetailBook>();
+  const [favorite, setFavorite] = useMMKVString(keysStorage.favorite.list);
+
+  const favoriteList = JSON.parse(favorite || '[]') as Array<TFavoriteItem>;
+
+  const isFavorite = useMemo(
+    () => favoriteList.some(({ id }) => id === params.id),
+    [favoriteList, params.id],
+  );
 
   const handleBuy = useCallback(async () => {
     await Linking.openURL(bookResult!.saleInfo.buyLink);
   }, [bookResult]);
+
+  const handleFavorite = useCallback(() => {
+    const data = {
+      id: params.id,
+      title: bookResult?.volumeInfo.title,
+      image: bookResult?.volumeInfo.imageLinks.thumbnail,
+    };
+
+    const filterFavorite = favoriteList.find(({ id }) => id === params.id);
+
+    if (!filterFavorite) {
+      setFavorite(JSON.stringify([...favoriteList, data]));
+
+      ToastAndroid.showWithGravity(
+        'Adicionado como favorito',
+        ToastAndroid.TOP,
+        ToastAndroid.CENTER,
+      );
+    } else {
+      const filterActive = favoriteList.filter(({ id }) => id !== params.id);
+
+      setFavorite(JSON.stringify([...filterActive]));
+
+      ToastAndroid.showWithGravity(
+        'Removido com sucesso',
+        ToastAndroid.TOP,
+        ToastAndroid.CENTER,
+      );
+    }
+  }, [
+    bookResult?.volumeInfo.imageLinks.thumbnail,
+    bookResult?.volumeInfo.title,
+    favoriteList,
+    params.id,
+    setFavorite,
+  ]);
 
   const getDetail = useCallback(async () => {
     try {
@@ -54,7 +107,13 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
         </View>
 
         <View style={styles.favoriteAndBuyView}>
-          <Image source={HeartIcon} style={styles.favoriteImage} />
+          <Pressable onPress={handleFavorite}>
+            {isFavorite ? (
+              <Image source={HeartRedIcon} style={styles.favoriteImageTrue} />
+            ) : (
+              <Image source={HeartIcon} style={styles.favoriteImage} />
+            )}
+          </Pressable>
 
           {!!bookResult?.saleInfo.buyLink && (
             <Pressable onPress={handleBuy}>
