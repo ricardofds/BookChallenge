@@ -17,10 +17,11 @@ const homeStyle = StyleSheet.create({
     alignItems: 'center',
   },
   input: {
-    borderWidth: 1,
+    borderWidth: 2,
     borderRadius: 20,
-    borderColor: '#c4c4c4',
+    borderColor: COLORS.almostWhite,
     margin: 10,
+    paddingLeft: 10,
   },
   searchView: {
     flex: 1,
