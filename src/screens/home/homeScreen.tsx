@@ -35,6 +35,7 @@ const HomeScreen = ({ navigation }) => {
   const handleBookDetails = (item: TSearchBookItems) =>
     navigation.navigate('BookDetail', {
       id: item.id,
+      title: item.volumeInfo.title,
     });
 
   const renderBookSearch = ({ item }: ListRenderItemInfo<TSearchBookItems>) => {
