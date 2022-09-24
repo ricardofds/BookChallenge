@@ -1,5 +1,7 @@
 import axios from 'axios';
 
-export const api = axios.create({
-  baseURL: '',
+export const GOOGLE_KEY = '';
+
+export const GoogleService = axios.create({
+  baseURL: 'https://www.googleapis.com',
 });
