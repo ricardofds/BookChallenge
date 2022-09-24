@@ -11,4 +11,6 @@ export const COLORS = {
   lightBlue: '#424BAF',
   white: '#FFFFFF',
   black: '#1E1B26',
+
+  almostWhite: '#EEEFF0',
 };

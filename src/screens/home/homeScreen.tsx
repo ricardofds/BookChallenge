@@ -17,22 +17,32 @@ import {
 
 import styles from './homeScreen.styles';
 
-const Home = () => {
+const HomeScreen = ({ navigation }) => {
   const [search, setSearch] = useState<TSearchBookItems[]>([]);
   const [inputValue, setInputValue] = useState('');
 
   const changeInput = useCallback(async (keyword: string) => {
-    setInputValue(keyword);
-    const { items } = await getSearchBook({ keyword });
+    try {
+      setInputValue(keyword);
+      const { items } = await getSearchBook({ keyword });
 
-    setSearch(items);
+      setSearch(items);
+    } catch (err) {
+      setSearch([]);
+    }
   }, []);
+
+  const handleBookDetails = (item: TSearchBookItems) =>
+    navigation.navigate('BookDetail', {
+      id: item.id,
+    });
 
   const renderBookSearch = ({ item }: ListRenderItemInfo<TSearchBookItems>) => {
     return (
       <BookDesign
         image={item.volumeInfo.imageLinks?.thumbnail}
         name={item.volumeInfo.title}
+        onPress={() => handleBookDetails(item)}
       />
     );
   };
@@ -88,4 +98,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomeScreen;

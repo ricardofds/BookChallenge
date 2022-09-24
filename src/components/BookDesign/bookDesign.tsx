@@ -6,14 +6,19 @@ import styles from './bookDesign.styles';
 interface IBookDesignProps {
   image?: string;
   name: string;
+  onPress(): void;
 }
 
 const imageDefault =
   'https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/2609/image-not-found.jpg';
 
-const BookDesign = ({ image = imageDefault, name }: IBookDesignProps) => {
+const BookDesign = ({
+  image = imageDefault,
+  name,
+  onPress,
+}: IBookDesignProps) => {
   return (
-    <TouchableOpacity style={styles.cardTouch}>
+    <TouchableOpacity style={styles.cardTouch} onPress={onPress}>
       <Image
         source={{
           uri: image,
