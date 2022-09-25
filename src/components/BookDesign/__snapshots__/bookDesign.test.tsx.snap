@@ -18,6 +18,7 @@ exports[`Book Design Component should render correctly 1`] = `
       "marginBottom": 20,
       "marginRight": 12,
       "opacity": 1,
+      "width": 180,
     }
   }
   testID="book_design__action"

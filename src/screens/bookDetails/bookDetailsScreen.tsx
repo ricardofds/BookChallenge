@@ -9,7 +9,6 @@ import {
   Pressable,
   Image,
   Linking,
-  ToastAndroid,
 } from 'react-native';
 import { HeartIcon, HeartRedIcon } from '../../assets/image';
 import BookDesign from '../../components/bookDesign/bookDesign';
@@ -24,6 +23,7 @@ import { tagsHtmlRegex } from '../../util/regex.utils';
 import styles from './bookDetails.styles';
 import Loader from '../../components/loader/loader';
 import { TFavoriteItem } from '../../routes/types';
+import Toast from 'react-native-toast-message';
 
 const BookDetailsScreen = ({ navigation, route: { params } }) => {
   const [bookResult, setBookResult] = useState<IResponseGetDetailBook>();
@@ -53,21 +53,19 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
     if (!filterFavorite) {
       setFavorite(JSON.stringify([...favoriteList, data]));
 
-      ToastAndroid.showWithGravity(
-        'Adicionado como favorito',
-        ToastAndroid.TOP,
-        ToastAndroid.CENTER,
-      );
+      Toast.show({
+        type: 'success',
+        text1: 'Adicionado como favorito',
+      });
     } else {
       const filterActive = favoriteList.filter(({ id }) => id !== params.id);
 
       setFavorite(JSON.stringify([...filterActive]));
 
-      ToastAndroid.showWithGravity(
-        'Removido com sucesso',
-        ToastAndroid.TOP,
-        ToastAndroid.CENTER,
-      );
+      Toast.show({
+        type: 'success',
+        text1: 'Removido com sucesso',
+      });
     }
   }, [
     bookResult?.volumeInfo.imageLinks.thumbnail,
@@ -111,7 +109,9 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
           </View>
 
           <View style={styles.favoriteAndBuyView}>
-            <Pressable onPress={handleFavorite}>
+            <Pressable
+              testID="bookDetails_button_favorite"
+              onPress={handleFavorite}>
               {isFavorite ? (
                 <Image source={HeartRedIcon} style={styles.favoriteImageTrue} />
               ) : (
@@ -120,7 +120,9 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
             </Pressable>
 
             {!!bookResult?.saleInfo.buyLink && (
-              <Pressable onPress={handleBuy}>
+              <Pressable
+                testID="bookDetails_button_buyBook"
+                onPress={handleBuy}>
                 <Text>Comprar</Text>
               </Pressable>
             )}
