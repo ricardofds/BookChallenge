@@ -7,16 +7,17 @@ import {
   FlatList,
   TextInput,
   ListRenderItemInfo,
+  Image,
 } from 'react-native';
 import { useMMKVString } from 'react-native-mmkv';
 import BookDesign from '../../components/bookDesign/bookDesign';
 import { keysStorage } from '../../constants/storage';
-import { COLORS, SIZES } from '../../constants/theme';
 import { TFavoriteItem } from '../../routes/types';
 import {
   getSearchBook,
   TSearchBookItems,
 } from '../../service/api/book/getSearchBook';
+import { BookIcon } from '../../assets/image';
 
 import styles from './homeScreen.styles';
 
@@ -80,9 +81,9 @@ const HomeScreen = ({ navigation }) => {
       <View style={styles.headerView}>
         <View style={styles.userInfoView}>
           <View style={styles.safeView}>
-            <View style={{ marginRight: SIZES.padding }}>
-              <Text style={{ color: COLORS.black }}>Olá,</Text>
-              <Text style={{ color: COLORS.black }}>Ricardo</Text>
+            <View style={styles.welcomeView}>
+              <Text style={styles.welcomeText}>Olá,</Text>
+              <Text style={styles.userText}>Ricardo</Text>
             </View>
           </View>
         </View>
@@ -117,10 +118,10 @@ const HomeScreen = ({ navigation }) => {
           </View>
         </>
       )}
-      {!search.length && (
+      {!search.length && favoriteList.length > 0 && (
         <View style={styles.favoriteContainer}>
           <View style={styles.favoriteView}>
-            <Text style={{ color: COLORS.black }}>Favoritos</Text>
+            <Text style={styles.favoriteText}>Favoritos</Text>
 
             <TouchableOpacity onPress={() => console.log('')}>
               <Text style={styles.underlineText}>Veja mais</Text>
@@ -136,6 +137,12 @@ const HomeScreen = ({ navigation }) => {
               showsHorizontalScrollIndicator={false}
             />
           </View>
+        </View>
+      )}
+      {!search.length && !favoriteList.length && (
+        <View style={styles.emptyStateView}>
+          <Image source={BookIcon} style={styles.emptyStateImage} />
+          <Text>Pesquise e encontre os melhores livros</Text>
         </View>
       )}
     </SafeAreaView>

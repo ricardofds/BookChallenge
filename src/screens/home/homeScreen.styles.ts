@@ -10,6 +10,18 @@ const homeStyle = StyleSheet.create({
   headerView: {
     height: 100,
   },
+  welcomeView: {
+    marginRight: SIZES.padding,
+  },
+  welcomeText: {
+    color: COLORS.black,
+    fontSize: 18,
+    fontWeight: 'bold',
+  },
+  userText: {
+    color: COLORS.black,
+    fontSize: 14,
+  },
   userInfoView: {
     flex: 1,
     flexDirection: 'row',
@@ -50,9 +62,21 @@ const homeStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
+  favoriteText: {
+    color: COLORS.black,
+  },
   favoriteListView: {
     flex: 1,
     marginTop: SIZES.padding,
+  },
+  emptyStateView: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  emptyStateImage: {
+    width: 100,
+    height: 100,
   },
 });
 
