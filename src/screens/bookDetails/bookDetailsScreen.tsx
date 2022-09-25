@@ -22,10 +22,19 @@ import { tagsHtmlRegex } from '../../util/regex.utils';
 
 import styles from './bookDetails.styles';
 import Loader from '../../components/loader/loader';
-import { TFavoriteItem } from '../../routes/types';
+import { RootStackParamList, TFavoriteItem } from '../../routes/types';
 import Toast from 'react-native-toast-message';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const BookDetailsScreen = ({ navigation, route: { params } }) => {
+type BookDetailsScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'BookDetail'
+>;
+
+const BookDetailsScreen = ({
+  navigation,
+  route: { params },
+}: BookDetailsScreenProps) => {
   const [bookResult, setBookResult] = useState<IResponseGetDetailBook>();
   const [favorite, setFavorite] = useMMKVString(keysStorage.favorite.list);
   const [loading, setLoading] = useState(false);
@@ -68,7 +77,7 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
       });
     }
   }, [
-    bookResult?.volumeInfo.imageLinks.thumbnail,
+    bookResult?.volumeInfo.imageLinks?.thumbnail,
     bookResult?.volumeInfo.title,
     favoriteList,
     params.id,
@@ -102,7 +111,7 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
         <ScrollView>
           <View style={styles.bookView}>
             <BookDesign
-              image={bookResult?.volumeInfo.imageLinks.thumbnail}
+              image={bookResult?.volumeInfo.imageLinks?.thumbnail}
               name={bookResult?.volumeInfo.title || ''}
               onPress={() => {}}
             />

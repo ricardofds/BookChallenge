@@ -10,6 +10,8 @@ import React from 'react';
 import { GoogleService } from '../../service/api_service';
 import Toast from 'react-native-toast-message';
 import { Linking } from 'react-native';
+import { RootStackParamList } from '../../routes/types';
+import { RouteProp } from '@react-navigation/native';
 
 jest.mock('../../service/api_service');
 jest.mock('react-native-toast-message');
@@ -138,10 +140,15 @@ describe('Book Details screen', () => {
   beforeEach(cleanup);
 
   it('should render correctly', async () => {
-    const navigation = {};
+    const navigation: any = {};
 
-    const route = {
-      params: {},
+    const route: RouteProp<RootStackParamList, 'BookDetail'> = {
+      params: {
+        title: '',
+        id: '',
+      },
+      key: '',
+      name: 'BookDetail',
     };
 
     render(<BookDetailsScreen navigation={navigation} route={route} />);
@@ -152,12 +159,15 @@ describe('Book Details screen', () => {
   });
 
   it('should render correctly and endpoint return success', async () => {
-    const navigation = {};
+    const navigation: any = {};
 
-    const route = {
+    const route: RouteProp<RootStackParamList, 'BookDetail'> = {
       params: {
         id: '102030',
+        title: 'teste unitário',
       },
+      key: '',
+      name: 'BookDetail',
     };
 
     (GoogleService.get as jest.Mock).mockImplementation(() =>
@@ -177,14 +187,17 @@ describe('Book Details screen', () => {
   it('should render correctly and endpoint return error', async () => {
     const mockPop = jest.fn();
 
-    const navigation = {
+    const navigation: any = {
       pop: mockPop,
     };
 
-    const route = {
+    const route: RouteProp<RootStackParamList, 'BookDetail'> = {
       params: {
         id: '102030',
+        title: 'teste unitário',
       },
+      key: '',
+      name: 'BookDetail',
     };
 
     (GoogleService.get as jest.Mock).mockRejectedValueOnce({
@@ -204,14 +217,17 @@ describe('Book Details screen', () => {
   it('should click in button favorite', async () => {
     const mockPop = jest.fn();
 
-    const navigation = {
+    const navigation: any = {
       pop: mockPop,
     };
 
-    const route = {
+    const route: RouteProp<RootStackParamList, 'BookDetail'> = {
       params: {
         id: '102030',
+        title: 'teste unitário',
       },
+      key: '',
+      name: 'BookDetail',
     };
 
     (GoogleService.get as jest.Mock).mockImplementation(() =>
@@ -251,14 +267,17 @@ describe('Book Details screen', () => {
   it('should click in buy book', async () => {
     const mockPop = jest.fn();
 
-    const navigation = {
+    const navigation: any = {
       pop: mockPop,
     };
 
-    const route = {
+    const route: RouteProp<RootStackParamList, 'BookDetail'> = {
       params: {
         id: '102030',
+        title: 'teste unitário',
       },
+      key: '',
+      name: 'BookDetail',
     };
 
     (GoogleService.get as jest.Mock).mockImplementation(() =>
