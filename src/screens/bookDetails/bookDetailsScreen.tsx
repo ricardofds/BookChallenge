@@ -12,7 +12,7 @@ import {
   ToastAndroid,
 } from 'react-native';
 import { HeartIcon, HeartRedIcon } from '../../assets/image';
-import BookDesign from '../../components/BookDesign/bookDesign';
+import BookDesign from '../../components/bookDesign/bookDesign';
 import { keysStorage } from '../../constants/storage';
 import {
   getDetailBook,
@@ -22,6 +22,7 @@ import { dateFormat } from '../../util/date.utils';
 import { tagsHtmlRegex } from '../../util/regex.utils';
 
 import styles from './bookDetails.styles';
+import Loader from '../../components/loader/loader';
 
 type TFavoriteItem = {
   id: string;
@@ -32,6 +33,7 @@ type TFavoriteItem = {
 const BookDetailsScreen = ({ navigation, route: { params } }) => {
   const [bookResult, setBookResult] = useState<IResponseGetDetailBook>();
   const [favorite, setFavorite] = useMMKVString(keysStorage.favorite.list);
+  const [loading, setLoading] = useState(false);
 
   const favoriteList = JSON.parse(favorite || '[]') as Array<TFavoriteItem>;
 
@@ -81,6 +83,8 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
   ]);
 
   const getDetail = useCallback(async () => {
+    setLoading(true);
+
     try {
       const data = await getDetailBook({ id: params.id });
 
@@ -88,6 +92,8 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
     } catch (err) {
       navigation.pop();
       Alert.alert('Livro não encontrado');
+    } finally {
+      setLoading(false);
     }
   }, [navigation, params.id]);
 
@@ -97,80 +103,84 @@ const BookDetailsScreen = ({ navigation, route: { params } }) => {
 
   return (
     <SafeAreaView style={styles.safeView}>
-      <ScrollView>
-        <View style={styles.bookView}>
-          <BookDesign
-            image={bookResult?.volumeInfo.imageLinks.thumbnail}
-            name={bookResult?.volumeInfo.title}
-            onPress={() => {}}
-          />
-        </View>
+      {loading ? (
+        <Loader />
+      ) : (
+        <ScrollView>
+          <View style={styles.bookView}>
+            <BookDesign
+              image={bookResult?.volumeInfo.imageLinks.thumbnail}
+              name={bookResult?.volumeInfo.title || ''}
+              onPress={() => {}}
+            />
+          </View>
 
-        <View style={styles.favoriteAndBuyView}>
-          <Pressable onPress={handleFavorite}>
-            {isFavorite ? (
-              <Image source={HeartRedIcon} style={styles.favoriteImageTrue} />
-            ) : (
-              <Image source={HeartIcon} style={styles.favoriteImage} />
-            )}
-          </Pressable>
-
-          {!!bookResult?.saleInfo.buyLink && (
-            <Pressable onPress={handleBuy}>
-              <Text>Comprar</Text>
+          <View style={styles.favoriteAndBuyView}>
+            <Pressable onPress={handleFavorite}>
+              {isFavorite ? (
+                <Image source={HeartRedIcon} style={styles.favoriteImageTrue} />
+              ) : (
+                <Image source={HeartIcon} style={styles.favoriteImage} />
+              )}
             </Pressable>
-          )}
-        </View>
 
-        <View style={styles.aboutView}>
-          {!!bookResult?.volumeInfo.description && (
-            <View style={styles.aboutTextView}>
-              <Text style={styles.aboutTitleText}>
-                Descrição:{' '}
-                <Text style={styles.aboutDescriptionText}>
-                  {bookResult?.volumeInfo.description.replace(
-                    tagsHtmlRegex,
-                    '',
-                  )}
-                </Text>
-              </Text>
-            </View>
-          )}
+            {!!bookResult?.saleInfo.buyLink && (
+              <Pressable onPress={handleBuy}>
+                <Text>Comprar</Text>
+              </Pressable>
+            )}
+          </View>
 
-          {!!bookResult?.volumeInfo.authors && (
-            <View style={styles.aboutTextView}>
-              <Text style={styles.aboutTitleText}>
-                Autor:{' '}
-                <Text style={styles.aboutDescriptionText}>
-                  {bookResult?.volumeInfo.authors}
+          <View style={styles.aboutView}>
+            {!!bookResult?.volumeInfo.description && (
+              <View style={styles.aboutTextView}>
+                <Text style={styles.aboutTitleText}>
+                  Descrição:{' '}
+                  <Text style={styles.aboutDescriptionText}>
+                    {bookResult?.volumeInfo.description.replace(
+                      tagsHtmlRegex,
+                      '',
+                    )}
+                  </Text>
                 </Text>
-              </Text>
-            </View>
-          )}
+              </View>
+            )}
 
-          {!!bookResult?.volumeInfo.publishedDate && (
-            <View style={styles.aboutTextView}>
-              <Text style={styles.aboutTitleText}>
-                Publicado em:{' '}
-                <Text style={styles.aboutDescriptionText}>
-                  {dateFormat(new Date(bookResult?.volumeInfo.publishedDate))}
+            {!!bookResult?.volumeInfo.authors && (
+              <View style={styles.aboutTextView}>
+                <Text style={styles.aboutTitleText}>
+                  Autor:{' '}
+                  <Text style={styles.aboutDescriptionText}>
+                    {bookResult?.volumeInfo.authors}
+                  </Text>
                 </Text>
-              </Text>
-            </View>
-          )}
+              </View>
+            )}
 
-          {!!bookResult?.volumeInfo.pageCount && (
-            <View style={styles.aboutTextView}>
-              <Text style={styles.aboutTitleText}>
-                Num. págs:{' '}
-                <Text style={styles.aboutDescriptionText}>
-                  {bookResult?.volumeInfo.pageCount} páginas
+            {!!bookResult?.volumeInfo.publishedDate && (
+              <View style={styles.aboutTextView}>
+                <Text style={styles.aboutTitleText}>
+                  Publicado em:{' '}
+                  <Text style={styles.aboutDescriptionText}>
+                    {dateFormat(new Date(bookResult?.volumeInfo.publishedDate))}
+                  </Text>
                 </Text>
-              </Text>
-            </View>
-          )}
-        </View>
-      </ScrollView>
+              </View>
+            )}
+
+            {!!bookResult?.volumeInfo.pageCount && (
+              <View style={styles.aboutTextView}>
+                <Text style={styles.aboutTitleText}>
+                  Num. págs:{' '}
+                  <Text style={styles.aboutDescriptionText}>
+                    {bookResult?.volumeInfo.pageCount} páginas
+                  </Text>
+                </Text>
+              </View>
+            )}
+          </View>
+        </ScrollView>
+      )}
     </SafeAreaView>
   );
 };

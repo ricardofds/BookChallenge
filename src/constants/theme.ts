@@ -13,4 +13,5 @@ export const COLORS = {
   black: '#1E1B26',
 
   almostWhite: '#EEEFF0',
+  loading: '#F5FCFF88',
 };

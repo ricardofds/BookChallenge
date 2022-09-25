@@ -8,7 +8,7 @@ import {
   TextInput,
   ListRenderItemInfo,
 } from 'react-native';
-import BookDesign from '../../components/BookDesign/bookDesign';
+import BookDesign from '../../components/bookDesign/bookDesign';
 import { COLORS, SIZES } from '../../constants/theme';
 import {
   getSearchBook,
