@@ -9,7 +9,7 @@ interface IBookDesignProps {
   onPress(): void;
 }
 
-const imageDefault =
+export const imageDefault =
   'https://cdn.neemo.com.br/uploads/settings_webdelivery/logo/2609/image-not-found.jpg';
 
 const BookDesign = ({
@@ -18,8 +18,12 @@ const BookDesign = ({
   onPress,
 }: IBookDesignProps) => {
   return (
-    <TouchableOpacity style={styles.cardTouch} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.cardTouch}
+      testID="book_design__action"
+      onPress={onPress}>
       <Image
+        testID="book_design__image"
         source={{
           uri: image,
         }}

@@ -1,0 +1,64 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Book Design Component should render correctly 1`] = `
+<View
+  accessible={true}
+  collapsable={false}
+  focusable={true}
+  onClick={[Function]}
+  onResponderGrant={[Function]}
+  onResponderMove={[Function]}
+  onResponderRelease={[Function]}
+  onResponderTerminate={[Function]}
+  onResponderTerminationRequest={[Function]}
+  onStartShouldSetResponder={[Function]}
+  style={
+    Object {
+      "flex": 1,
+      "marginBottom": 20,
+      "marginRight": 12,
+      "opacity": 1,
+    }
+  }
+  testID="book_design__action"
+>
+  <Image
+    resizeMode="cover"
+    source={
+      Object {
+        "uri": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1200px-React-icon.svg.png",
+      }
+    }
+    style={
+      Object {
+        "borderRadius": 20,
+        "height": 250,
+        "width": 180,
+      }
+    }
+    testID="book_design__image"
+  />
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flexDirection": "row",
+        "justifyContent": "center",
+        "marginTop": 12,
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#1E1B26",
+          "fontSize": 12,
+          "marginLeft": 10,
+        }
+      }
+    >
+      Teste unitário
+    </Text>
+  </View>
+</View>
+`;
