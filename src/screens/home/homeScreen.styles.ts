@@ -31,7 +31,7 @@ const homeStyle = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'flex-end',
   },
-  clearText: {
+  underlineText: {
     color: COLORS.lightBlue,
     alignSelf: 'flex-start',
     textDecorationLine: 'underline',
@@ -40,6 +40,19 @@ const homeStyle = StyleSheet.create({
     flex: 1,
     marginTop: SIZES.padding,
     marginLeft: 10,
+  },
+  favoriteContainer: {
+    flex: 1,
+    margin: 10,
+  },
+  favoriteView: {
+    paddingHorizontal: SIZES.padding,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  favoriteListView: {
+    flex: 1,
+    marginTop: SIZES.padding,
   },
 });
 

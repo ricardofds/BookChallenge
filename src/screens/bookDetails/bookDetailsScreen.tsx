@@ -23,12 +23,7 @@ import { tagsHtmlRegex } from '../../util/regex.utils';
 
 import styles from './bookDetails.styles';
 import Loader from '../../components/loader/loader';
-
-type TFavoriteItem = {
-  id: string;
-  title: string;
-  image: string;
-};
+import { TFavoriteItem } from '../../routes/types';
 
 const BookDetailsScreen = ({ navigation, route: { params } }) => {
   const [bookResult, setBookResult] = useState<IResponseGetDetailBook>();

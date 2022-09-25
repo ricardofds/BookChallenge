@@ -6,6 +6,7 @@ const bookDesign = StyleSheet.create({
     flex: 1,
     marginRight: SIZES.radius,
     marginBottom: 20,
+    width: 180,
   },
   cardImage: {
     width: 180,

@@ -8,8 +8,11 @@ import {
   TextInput,
   ListRenderItemInfo,
 } from 'react-native';
+import { useMMKVString } from 'react-native-mmkv';
 import BookDesign from '../../components/bookDesign/bookDesign';
+import { keysStorage } from '../../constants/storage';
 import { COLORS, SIZES } from '../../constants/theme';
+import { TFavoriteItem } from '../../routes/types';
 import {
   getSearchBook,
   TSearchBookItems,
@@ -20,6 +23,9 @@ import styles from './homeScreen.styles';
 const HomeScreen = ({ navigation }) => {
   const [search, setSearch] = useState<TSearchBookItems[]>([]);
   const [inputValue, setInputValue] = useState('');
+  const [favorite] = useMMKVString(keysStorage.favorite.list);
+
+  const favoriteList = JSON.parse(favorite || '[]') as Array<TFavoriteItem>;
 
   const changeInput = useCallback(async (keyword: string) => {
     try {
@@ -44,6 +50,22 @@ const HomeScreen = ({ navigation }) => {
         image={item.volumeInfo.imageLinks?.thumbnail}
         name={item.volumeInfo.title}
         onPress={() => handleBookDetails(item)}
+      />
+    );
+  };
+
+  const handleFavoriteDetail = (item: TFavoriteItem) =>
+    navigation.navigate('BookDetail', {
+      id: item.id,
+      title: item.title,
+    });
+
+  const renderBookFavorite = ({ item }: ListRenderItemInfo<TFavoriteItem>) => {
+    return (
+      <BookDesign
+        image={item.image}
+        name={item.title}
+        onPress={() => handleFavoriteDetail(item)}
       />
     );
   };
@@ -80,7 +102,7 @@ const HomeScreen = ({ navigation }) => {
           <View style={styles.searchView}>
             <View style={styles.searchInfoView}>
               <TouchableOpacity onPress={clearSearch}>
-                <Text style={styles.clearText}>Limpar</Text>
+                <Text style={styles.underlineText}>Limpar</Text>
               </TouchableOpacity>
             </View>
 
@@ -94,6 +116,27 @@ const HomeScreen = ({ navigation }) => {
             </View>
           </View>
         </>
+      )}
+      {!search.length && (
+        <View style={styles.favoriteContainer}>
+          <View style={styles.favoriteView}>
+            <Text style={{ color: COLORS.black }}>Favoritos</Text>
+
+            <TouchableOpacity onPress={() => console.log('')}>
+              <Text style={styles.underlineText}>Veja mais</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.favoriteListView}>
+            <FlatList
+              data={favoriteList}
+              renderItem={renderBookFavorite}
+              keyExtractor={item => `${item.id}`}
+              horizontal
+              showsHorizontalScrollIndicator={false}
+            />
+          </View>
+        </View>
       )}
     </SafeAreaView>
   );
