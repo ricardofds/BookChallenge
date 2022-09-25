@@ -190,6 +190,8 @@ Array [
                                 style={
                                   Object {
                                     "color": "#1E1B26",
+                                    "fontSize": 18,
+                                    "fontWeight": "bold",
                                   }
                                 }
                               >
@@ -199,6 +201,7 @@ Array [
                                 style={
                                   Object {
                                     "color": "#1E1B26",
+                                    "fontSize": 14,
                                   }
                                 }
                               >
@@ -227,90 +230,28 @@ Array [
                       <View
                         style={
                           Object {
+                            "alignItems": "center",
                             "flex": 1,
-                            "margin": 10,
+                            "justifyContent": "center",
                           }
                         }
                       >
-                        <View
-                          style={
+                        <Image
+                          source={
                             Object {
-                              "flexDirection": "row",
-                              "justifyContent": "space-between",
-                              "paddingHorizontal": 24,
+                              "testUri": "../../../src/assets/image/book_icon.png",
                             }
                           }
-                        >
-                          <Text
-                            style={
-                              Object {
-                                "color": "#1E1B26",
-                              }
-                            }
-                          >
-                            Favoritos
-                          </Text>
-                          <View
-                            accessible={true}
-                            collapsable={false}
-                            focusable={true}
-                            onClick={[Function]}
-                            onResponderGrant={[Function]}
-                            onResponderMove={[Function]}
-                            onResponderRelease={[Function]}
-                            onResponderTerminate={[Function]}
-                            onResponderTerminationRequest={[Function]}
-                            onStartShouldSetResponder={[Function]}
-                            style={
-                              Object {
-                                "opacity": 1,
-                              }
-                            }
-                          >
-                            <Text
-                              style={
-                                Object {
-                                  "alignSelf": "flex-start",
-                                  "color": "#424BAF",
-                                  "textDecorationLine": "underline",
-                                }
-                              }
-                            >
-                              Veja mais
-                            </Text>
-                          </View>
-                        </View>
-                        <View
                           style={
                             Object {
-                              "flex": 1,
-                              "marginTop": 24,
+                              "height": 100,
+                              "width": 100,
                             }
                           }
-                        >
-                          <RCTScrollView
-                            data={Array []}
-                            getItem={[Function]}
-                            getItemCount={[Function]}
-                            horizontal={true}
-                            keyExtractor={[Function]}
-                            onContentSizeChange={[Function]}
-                            onLayout={[Function]}
-                            onMomentumScrollBegin={[Function]}
-                            onMomentumScrollEnd={[Function]}
-                            onScroll={[Function]}
-                            onScrollBeginDrag={[Function]}
-                            onScrollEndDrag={[Function]}
-                            removeClippedSubviews={false}
-                            renderItem={[Function]}
-                            scrollEventThrottle={50}
-                            showsHorizontalScrollIndicator={false}
-                            stickyHeaderIndices={Array []}
-                            viewabilityConfigCallbackPairs={Array []}
-                          >
-                            <View />
-                          </RCTScrollView>
-                        </View>
+                        />
+                        <Text>
+                          Pesquise e encontre os melhores livros
+                        </Text>
                       </View>
                     </RCTSafeAreaView>
                   </View>

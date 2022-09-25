@@ -4,9 +4,10 @@ import React from 'react';
 import Toast from 'react-native-toast-message';
 
 import Tabs from './routes/tabs';
+import { RootStackParamList } from './routes/types';
 import BookDetail from './screens/bookDetails/bookDetailsScreen';
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<RootStackParamList>();
 
 const App = () => {
   return (

@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from 'axios';
 import { GoogleService, GOOGLE_KEY } from '../../api_service';
 
 import { TVolumeInfo, TSaleInfoItem, TAcessInfoItem } from './types';
@@ -22,13 +23,18 @@ interface IResponseGetSearchBook {
 }
 
 interface IGetSearchBookProps {
-  keyword: string;
+  keyword?: string;
+  config?: AxiosRequestConfig<any> | undefined;
 }
 
-export const getSearchBook = async ({ keyword }: IGetSearchBookProps) => {
+export const getSearchBook = async ({
+  keyword,
+  config,
+}: IGetSearchBookProps) => {
   try {
     const { data } = await GoogleService.get<IResponseGetSearchBook>(
       `/books/v1/volumes?q='${keyword}&key=${GOOGLE_KEY}&maxResults=10`,
+      config,
     );
 
     return data;

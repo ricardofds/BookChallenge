@@ -5,8 +5,9 @@ import HomeScreen from '../screens/home/homeScreen';
 import { Image, StyleSheet } from 'react-native';
 
 import { HomeIcon } from '../assets/image';
+import { RootStackParamList } from './types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootStackParamList>();
 
 const Tabs = () => {
   return (

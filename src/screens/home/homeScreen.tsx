@@ -12,7 +12,7 @@ import {
 import { useMMKVString } from 'react-native-mmkv';
 import BookDesign from '../../components/bookDesign/bookDesign';
 import { keysStorage } from '../../constants/storage';
-import { TFavoriteItem } from '../../routes/types';
+import { RootStackParamList, TFavoriteItem } from '../../routes/types';
 import {
   getSearchBook,
   TSearchBookItems,
@@ -20,9 +20,13 @@ import {
 import { BookIcon } from '../../assets/image';
 
 import styles from './homeScreen.styles';
+import { NativeStackScreenProps } from '@react-navigation/native-stack';
 
-const HomeScreen = ({ navigation }) => {
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+
+const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const [search, setSearch] = useState<TSearchBookItems[]>([]);
+  const [page, setPage] = useState(20);
   const [inputValue, setInputValue] = useState('');
   const [favorite] = useMMKVString(keysStorage.favorite.list);
 
@@ -38,6 +42,24 @@ const HomeScreen = ({ navigation }) => {
       setSearch([]);
     }
   }, []);
+
+  const changePage = useCallback(async () => {
+    try {
+      const { items } = await getSearchBook({
+        keyword: inputValue,
+        config: {
+          params: {
+            startIndex: page,
+          },
+        },
+      });
+
+      setSearch([...search, ...items]);
+      setPage(page + 10);
+    } catch (err) {
+      setSearch([]);
+    }
+  }, [inputValue, page, search]);
 
   const handleBookDetails = (item: TSearchBookItems) =>
     navigation.navigate('BookDetail', {
@@ -74,6 +96,7 @@ const HomeScreen = ({ navigation }) => {
   const clearSearch = () => {
     setSearch([]);
     setInputValue('');
+    setPage(20);
   };
 
   return (
@@ -113,6 +136,8 @@ const HomeScreen = ({ navigation }) => {
                 numColumns={2}
                 renderItem={renderBookSearch}
                 keyExtractor={item => `${item.id}`}
+                onEndReachedThreshold={0.5}
+                onEndReached={changePage}
               />
             </View>
           </View>
