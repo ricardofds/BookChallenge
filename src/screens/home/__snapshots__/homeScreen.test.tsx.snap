@@ -75,6 +75,7 @@ exports[`Home Screen should change value and send request 1`] = `
           "borderColor": "#EEEFF0",
           "borderRadius": 20,
           "borderWidth": 2,
+          "height": 50,
           "margin": 10,
           "paddingLeft": 10,
         }
@@ -784,6 +785,7 @@ exports[`Home Screen should render correctly 1`] = `
           "borderColor": "#EEEFF0",
           "borderRadius": 20,
           "borderWidth": 2,
+          "height": 50,
           "margin": 10,
           "paddingLeft": 10,
         }

@@ -34,6 +34,7 @@ const homeStyle = StyleSheet.create({
     borderColor: COLORS.almostWhite,
     margin: 10,
     paddingLeft: 10,
+    height: 50,
   },
   searchView: {
     flex: 1,
