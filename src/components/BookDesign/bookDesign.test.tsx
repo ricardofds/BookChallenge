@@ -30,10 +30,12 @@ describe('Book Design Component', () => {
   it('should render correctly with onPress', async () => {
     const pressMock = jest.fn();
 
-    render(<BookDesign name="Teste unitário" onPress={pressMock} />);
+    render(
+      <BookDesign testID="unit" name="Teste unitário" onPress={pressMock} />,
+    );
 
     await act(async () => {
-      const buttonPress = screen.getByTestId('book_design__action');
+      const buttonPress = screen.getByTestId('book_design__action__unit');
 
       fireEvent.press(buttonPress);
     });

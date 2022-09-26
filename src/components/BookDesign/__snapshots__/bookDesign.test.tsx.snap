@@ -21,7 +21,7 @@ exports[`Book Design Component should render correctly 1`] = `
       "width": 180,
     }
   }
-  testID="book_design__action"
+  testID="book_design__action__undefined"
 >
   <Image
     resizeMode="cover"

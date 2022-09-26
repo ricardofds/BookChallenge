@@ -1,0 +1,822 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Home Screen should change value and send request 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 24,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFF",
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginRight": 24,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#1E1B26",
+                "fontSize": 18,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Olá,
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#1E1B26",
+                "fontSize": 14,
+              }
+            }
+          >
+            Ricardo
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View>
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Busca"
+      style={
+        Object {
+          "borderColor": "#EEEFF0",
+          "borderRadius": 20,
+          "borderWidth": 2,
+          "margin": 10,
+          "paddingLeft": 10,
+        }
+      }
+      testID="homeScreen__inputSearch"
+      value="IBM"
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "flexDirection": "row",
+          "justifyContent": "flex-end",
+          "paddingHorizontal": 24,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        collapsable={false}
+        focusable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <Text
+          style={
+            Object {
+              "alignSelf": "flex-start",
+              "color": "#424BAF",
+              "textDecorationLine": "underline",
+            }
+          }
+          testID="homeScreen__clearSearch"
+        >
+          Limpar
+        </Text>
+      </View>
+    </View>
+    <View
+      style={
+        Object {
+          "flex": 1,
+          "marginLeft": 10,
+          "marginTop": 24,
+        }
+      }
+    >
+      <RCTScrollView
+        data={
+          Array [
+            Object {
+              "accessInfo": Object {
+                "accessViewStatus": "SAMPLE",
+                "country": "BR",
+                "embeddable": true,
+                "epub": Object {
+                  "isAvailable": false,
+                },
+                "pdf": Object {
+                  "isAvailable": false,
+                },
+                "publicDomain": false,
+                "quoteSharingAllowed": false,
+                "textToSpeechPermission": "ALLOWED",
+                "viewability": "PARTIAL",
+                "webReaderLink": "http://play.google.com/books/reader?id=EF_jESQMqTgC&hl=&printsec=frontcover&source=gbs_api",
+              },
+              "etag": "TYzTrvdMGbY",
+              "id": "EF_jESQMqTgC",
+              "kind": "books#volume",
+              "saleInfo": Object {
+                "country": "BR",
+                "isEbook": false,
+                "saleability": "NOT_FOR_SALE",
+              },
+              "searchInfo": Object {
+                "textSnippet": "My heartiest congratulations to Kapil <b>Dev</b> tor surpassing the milestone of 431 wickets. It is a truly remarkable achievement because I don&#39;t think people yet appreciate the enormous effort and unflinching motivation that has gone into&nbsp;...",
+              },
+              "selfLink": "https://www.googleapis.com/books/v1/volumes/EF_jESQMqTgC",
+              "volumeInfo": Object {
+                "allowAnonLogging": false,
+                "authors": Array [
+                  "Romi Dev",
+                ],
+                "averageRating": 4.5,
+                "canonicalVolumeLink": "https://books.google.com/books/about/Kapil_Dev.html?hl=&id=EF_jESQMqTgC",
+                "categories": Array [
+                  "Cricket players",
+                ],
+                "contentVersion": "1.1.1.0.preview.1",
+                "description": "Contributed articles on Kapil Dev, b. 1959, Indian cricket player.",
+                "imageLinks": Object {
+                  "smallThumbnail": "http://books.google.com/books/content?id=EF_jESQMqTgC&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=EF_jESQMqTgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                },
+                "industryIdentifiers": Array [
+                  Object {
+                    "identifier": "9788170234029",
+                    "type": "ISBN_13",
+                  },
+                  Object {
+                    "identifier": "8170234026",
+                    "type": "ISBN_10",
+                  },
+                ],
+                "infoLink": "http://books.google.com.br/books?id=EF_jESQMqTgC&dq=%27dev&hl=&source=gbs_api",
+                "language": "en",
+                "maturityRating": "NOT_MATURE",
+                "pageCount": 154,
+                "previewLink": "http://books.google.com.br/books?id=EF_jESQMqTgC&pg=PA76&dq=%27dev&hl=&cd=1&source=gbs_api",
+                "printType": "BOOK",
+                "publishedDate": "1994",
+                "publisher": "Allied Publishers",
+                "ratingsCount": 2,
+                "readingModes": Object {
+                  "image": true,
+                  "text": false,
+                },
+                "subtitle": "Triumph of the Spirit",
+                "title": "Kapil Dev",
+              },
+            },
+            Object {
+              "accessInfo": Object {
+                "accessViewStatus": "NONE",
+                "country": "BR",
+                "embeddable": false,
+                "epub": Object {
+                  "isAvailable": false,
+                },
+                "pdf": Object {
+                  "isAvailable": false,
+                },
+                "publicDomain": false,
+                "quoteSharingAllowed": false,
+                "textToSpeechPermission": "ALLOWED",
+                "viewability": "NO_PAGES",
+                "webReaderLink": "http://play.google.com/books/reader?id=3FkOAAAAYAAJ&hl=&printsec=frontcover&source=gbs_api",
+              },
+              "etag": "RftxMC5MVcw",
+              "id": "3FkOAAAAYAAJ",
+              "kind": "books#volume",
+              "saleInfo": Object {
+                "country": "BR",
+                "isEbook": false,
+                "saleability": "NOT_FOR_SALE",
+              },
+              "searchInfo": Object {
+                "textSnippet": "Kesava <b>Dev</b> (1904-83), primarily a socialist and a realist, was a novelist, short story writer, playwright, critic and social reformer. Identified himself with the lower strata of society, he held revolutionary ideas.",
+              },
+              "selfLink": "https://www.googleapis.com/books/v1/volumes/3FkOAAAAYAAJ",
+              "volumeInfo": Object {
+                "allowAnonLogging": false,
+                "authors": Array [
+                  "Ke. Pi Śaśidharan",
+                ],
+                "canonicalVolumeLink": "https://books.google.com/books/about/Kesava_Dev.html?hl=&id=3FkOAAAAYAAJ",
+                "contentVersion": "2.4.3.0.preview.0",
+                "imageLinks": Object {
+                  "smallThumbnail": "http://books.google.com/books/content?id=3FkOAAAAYAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=3FkOAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+                },
+                "industryIdentifiers": Array [
+                  Object {
+                    "identifier": "UVA:X001972270",
+                    "type": "OTHER",
+                  },
+                ],
+                "infoLink": "http://books.google.com.br/books?id=3FkOAAAAYAAJ&dq=%27dev&hl=&source=gbs_api",
+                "language": "en",
+                "maturityRating": "NOT_MATURE",
+                "pageCount": 91,
+                "panelizationSummary": Object {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false,
+                },
+                "previewLink": "http://books.google.com.br/books?id=3FkOAAAAYAAJ&q=%27dev&dq=%27dev&hl=&cd=2&source=gbs_api",
+                "printType": "BOOK",
+                "publishedDate": "1990",
+                "readingModes": Object {
+                  "image": false,
+                  "text": false,
+                },
+                "title": "Kesava Dev",
+              },
+            },
+            Object {
+              "accessInfo": Object {
+                "accessViewStatus": "NONE",
+                "country": "BR",
+                "embeddable": false,
+                "epub": Object {
+                  "isAvailable": false,
+                },
+                "pdf": Object {
+                  "isAvailable": false,
+                },
+                "publicDomain": false,
+                "quoteSharingAllowed": false,
+                "textToSpeechPermission": "ALLOWED",
+                "viewability": "NO_PAGES",
+                "webReaderLink": "http://play.google.com/books/reader?id=5fQ_AAAAIAAJ&hl=&printsec=frontcover&source=gbs_api",
+              },
+              "etag": "0jEh4s5kydQ",
+              "id": "5fQ_AAAAIAAJ",
+              "kind": "books#volume",
+              "saleInfo": Object {
+                "country": "BR",
+                "isEbook": false,
+                "saleability": "NOT_FOR_SALE",
+              },
+              "selfLink": "https://www.googleapis.com/books/v1/volumes/5fQ_AAAAIAAJ",
+              "volumeInfo": Object {
+                "allowAnonLogging": false,
+                "authors": Array [
+                  "Amrita Pritam",
+                ],
+                "canonicalVolumeLink": "https://books.google.com/books/about/Doctor_Dev.html?hl=&id=5fQ_AAAAIAAJ",
+                "contentVersion": "0.5.6.0.preview.0",
+                "description": "Novel.",
+                "imageLinks": Object {
+                  "smallThumbnail": "http://books.google.com/books/content?id=5fQ_AAAAIAAJ&printsec=frontcover&img=1&zoom=5&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=5fQ_AAAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+                },
+                "industryIdentifiers": Array [
+                  Object {
+                    "identifier": "UCAL:$B123591",
+                    "type": "OTHER",
+                  },
+                ],
+                "infoLink": "http://books.google.com.br/books?id=5fQ_AAAAIAAJ&dq=%27dev&hl=&source=gbs_api",
+                "language": "en",
+                "maturityRating": "NOT_MATURE",
+                "pageCount": 114,
+                "panelizationSummary": Object {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false,
+                },
+                "previewLink": "http://books.google.com.br/books?id=5fQ_AAAAIAAJ&q=%27dev&dq=%27dev&hl=&cd=3&source=gbs_api",
+                "printType": "BOOK",
+                "publishedDate": "1968",
+                "readingModes": Object {
+                  "image": false,
+                  "text": false,
+                },
+                "title": "Doctor Dev",
+              },
+            },
+            Object {
+              "accessInfo": Object {
+                "accessViewStatus": "SAMPLE",
+                "country": "BR",
+                "embeddable": true,
+                "epub": Object {
+                  "isAvailable": false,
+                },
+                "pdf": Object {
+                  "isAvailable": false,
+                },
+                "publicDomain": false,
+                "quoteSharingAllowed": false,
+                "textToSpeechPermission": "ALLOWED",
+                "viewability": "PARTIAL",
+                "webReaderLink": "http://play.google.com/books/reader?id=PCQaSH_29i4C&hl=&printsec=frontcover&source=gbs_api",
+              },
+              "etag": "VSG9NGGm+Oc",
+              "id": "PCQaSH_29i4C",
+              "kind": "books#volume",
+              "saleInfo": Object {
+                "country": "BR",
+                "isEbook": false,
+                "saleability": "NOT_FOR_SALE",
+              },
+              "searchInfo": Object {
+                "textSnippet": "In one of his moods Guru Arjan <b>Dev</b> took up the task of remembering the Lord by various names current among His Hindu devotees , but when on completion of the usual forty - eight lines he felt the job had not been done adequately&nbsp;...",
+              },
+              "selfLink": "https://www.googleapis.com/books/v1/volumes/PCQaSH_29i4C",
+              "volumeInfo": Object {
+                "allowAnonLogging": false,
+                "authors": Array [
+                  "Mahindara Siṅgha Joshī",
+                ],
+                "canonicalVolumeLink": "https://books.google.com/books/about/Guru_Arjan_Dev.html?hl=&id=PCQaSH_29i4C",
+                "contentVersion": "0.4.2.0.preview.1",
+                "description": "On the life and works of Guru Arjun, 1563-1606, Panjabi saint poet of India.",
+                "imageLinks": Object {
+                  "smallThumbnail": "http://books.google.com/books/content?id=PCQaSH_29i4C&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api",
+                  "thumbnail": "http://books.google.com/books/content?id=PCQaSH_29i4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                },
+                "industryIdentifiers": Array [
+                  Object {
+                    "identifier": "8172017693",
+                    "type": "ISBN_10",
+                  },
+                  Object {
+                    "identifier": "9788172017699",
+                    "type": "ISBN_13",
+                  },
+                ],
+                "infoLink": "http://books.google.com.br/books?id=PCQaSH_29i4C&dq=%27dev&hl=&source=gbs_api",
+                "language": "en",
+                "maturityRating": "NOT_MATURE",
+                "pageCount": 118,
+                "panelizationSummary": Object {
+                  "containsEpubBubbles": false,
+                  "containsImageBubbles": false,
+                },
+                "previewLink": "http://books.google.com.br/books?id=PCQaSH_29i4C&pg=PA69&dq=%27dev&hl=&cd=4&source=gbs_api",
+                "printType": "BOOK",
+                "publishedDate": "1994",
+                "publisher": "Sahitya Akademi",
+                "readingModes": Object {
+                  "image": true,
+                  "text": false,
+                },
+                "title": "Guru Arjan Dev",
+              },
+            },
+          ]
+        }
+        getItem={[Function]}
+        getItemCount={[Function]}
+        keyExtractor={[Function]}
+        onContentSizeChange={[Function]}
+        onEndReached={[Function]}
+        onEndReachedThreshold={0.5}
+        onLayout={[Function]}
+        onMomentumScrollBegin={[Function]}
+        onMomentumScrollEnd={[Function]}
+        onScroll={[Function]}
+        onScrollBeginDrag={[Function]}
+        onScrollEndDrag={[Function]}
+        removeClippedSubviews={false}
+        renderItem={[Function]}
+        scrollEventThrottle={50}
+        stickyHeaderIndices={Array []}
+        testID="homeScreen__listItem"
+        viewabilityConfigCallbackPairs={Array []}
+      >
+        <View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginBottom": 20,
+                    "marginRight": 12,
+                    "opacity": 1,
+                    "width": 180,
+                  }
+                }
+                testID="book_design__action__0"
+              >
+                <Image
+                  resizeMode="cover"
+                  source={
+                    Object {
+                      "uri": "http://books.google.com/books/content?id=EF_jESQMqTgC&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 250,
+                      "width": 180,
+                    }
+                  }
+                  testID="book_design__image"
+                />
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 12,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#1E1B26",
+                        "fontSize": 12,
+                        "marginLeft": 10,
+                      }
+                    }
+                  >
+                    Kapil Dev
+                  </Text>
+                </View>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginBottom": 20,
+                    "marginRight": 12,
+                    "opacity": 1,
+                    "width": 180,
+                  }
+                }
+                testID="book_design__action__1"
+              >
+                <Image
+                  resizeMode="cover"
+                  source={
+                    Object {
+                      "uri": "http://books.google.com/books/content?id=3FkOAAAAYAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 250,
+                      "width": 180,
+                    }
+                  }
+                  testID="book_design__image"
+                />
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 12,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#1E1B26",
+                        "fontSize": 12,
+                        "marginLeft": 10,
+                      }
+                    }
+                  >
+                    Kesava Dev
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+          <View
+            onLayout={[Function]}
+            style={null}
+          >
+            <View
+              style={
+                Object {
+                  "flexDirection": "row",
+                }
+              }
+            >
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginBottom": 20,
+                    "marginRight": 12,
+                    "opacity": 1,
+                    "width": 180,
+                  }
+                }
+                testID="book_design__action__2"
+              >
+                <Image
+                  resizeMode="cover"
+                  source={
+                    Object {
+                      "uri": "http://books.google.com/books/content?id=5fQ_AAAAIAAJ&printsec=frontcover&img=1&zoom=1&source=gbs_api",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 250,
+                      "width": 180,
+                    }
+                  }
+                  testID="book_design__image"
+                />
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 12,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#1E1B26",
+                        "fontSize": 12,
+                        "marginLeft": 10,
+                      }
+                    }
+                  >
+                    Doctor Dev
+                  </Text>
+                </View>
+              </View>
+              <View
+                accessible={true}
+                collapsable={false}
+                focusable={true}
+                onClick={[Function]}
+                onResponderGrant={[Function]}
+                onResponderMove={[Function]}
+                onResponderRelease={[Function]}
+                onResponderTerminate={[Function]}
+                onResponderTerminationRequest={[Function]}
+                onStartShouldSetResponder={[Function]}
+                style={
+                  Object {
+                    "flex": 1,
+                    "marginBottom": 20,
+                    "marginRight": 12,
+                    "opacity": 1,
+                    "width": 180,
+                  }
+                }
+                testID="book_design__action__3"
+              >
+                <Image
+                  resizeMode="cover"
+                  source={
+                    Object {
+                      "uri": "http://books.google.com/books/content?id=PCQaSH_29i4C&printsec=frontcover&img=1&zoom=1&edge=curl&source=gbs_api",
+                    }
+                  }
+                  style={
+                    Object {
+                      "borderRadius": 20,
+                      "height": 250,
+                      "width": 180,
+                    }
+                  }
+                  testID="book_design__image"
+                />
+                <View
+                  style={
+                    Object {
+                      "alignItems": "center",
+                      "flexDirection": "row",
+                      "justifyContent": "center",
+                      "marginTop": 12,
+                    }
+                  }
+                >
+                  <Text
+                    style={
+                      Object {
+                        "color": "#1E1B26",
+                        "fontSize": 12,
+                        "marginLeft": 10,
+                      }
+                    }
+                  >
+                    Guru Arjan Dev
+                  </Text>
+                </View>
+              </View>
+            </View>
+          </View>
+        </View>
+      </RCTScrollView>
+    </View>
+  </View>
+</RCTSafeAreaView>
+`;
+
+exports[`Home Screen should render correctly 1`] = `
+<RCTSafeAreaView
+  style={
+    Object {
+      "backgroundColor": "#FFF",
+      "flex": 1,
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "height": 100,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "alignItems": "center",
+          "flex": 1,
+          "flexDirection": "row",
+          "paddingHorizontal": 24,
+        }
+      }
+    >
+      <View
+        style={
+          Object {
+            "backgroundColor": "#FFF",
+            "flex": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "marginRight": 24,
+            }
+          }
+        >
+          <Text
+            style={
+              Object {
+                "color": "#1E1B26",
+                "fontSize": 18,
+                "fontWeight": "bold",
+              }
+            }
+          >
+            Olá,
+          </Text>
+          <Text
+            style={
+              Object {
+                "color": "#1E1B26",
+                "fontSize": 14,
+              }
+            }
+          >
+            Ricardo
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View>
+    <TextInput
+      onChangeText={[Function]}
+      placeholder="Busca"
+      style={
+        Object {
+          "borderColor": "#EEEFF0",
+          "borderRadius": 20,
+          "borderWidth": 2,
+          "margin": 10,
+          "paddingLeft": 10,
+        }
+      }
+      testID="homeScreen__inputSearch"
+      value=""
+    />
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "center",
+        "flex": 1,
+        "justifyContent": "center",
+      }
+    }
+  >
+    <Image
+      source={
+        Object {
+          "testUri": "../../../src/assets/image/book_icon.png",
+        }
+      }
+      style={
+        Object {
+          "height": 100,
+          "width": 100,
+        }
+      }
+    />
+    <Text>
+      Pesquise e encontre os melhores livros
+    </Text>
+  </View>
+</RCTSafeAreaView>
+`;

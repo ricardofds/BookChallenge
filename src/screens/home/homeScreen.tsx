@@ -21,6 +21,7 @@ import { BookIcon } from '../../assets/image';
 
 import styles from './homeScreen.styles';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
+import { storage } from '../../service/storage_service';
 
 type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
 
@@ -28,7 +29,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const [search, setSearch] = useState<TSearchBookItems[]>([]);
   const [page, setPage] = useState(20);
   const [inputValue, setInputValue] = useState('');
-  const [favorite] = useMMKVString(keysStorage.favorite.list);
+  const favorite = storage.getString(keysStorage.favorite.list);
 
   const favoriteList = JSON.parse(favorite || '[]') as Array<TFavoriteItem>;
 
@@ -57,7 +58,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       setSearch([...search, ...items]);
       setPage(page + 10);
     } catch (err) {
-      setSearch([]);
+      setSearch([...search]);
     }
   }, [inputValue, page, search]);
 
@@ -67,9 +68,13 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       title: item.volumeInfo.title,
     });
 
-  const renderBookSearch = ({ item }: ListRenderItemInfo<TSearchBookItems>) => {
+  const renderBookSearch = ({
+    item,
+    index,
+  }: ListRenderItemInfo<TSearchBookItems>) => {
     return (
       <BookDesign
+        testID={String(index)}
         image={item.volumeInfo.imageLinks?.thumbnail}
         name={item.volumeInfo.title}
         onPress={() => handleBookDetails(item)}
@@ -83,9 +88,13 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       title: item.title,
     });
 
-  const renderBookFavorite = ({ item }: ListRenderItemInfo<TFavoriteItem>) => {
+  const renderBookFavorite = ({
+    item,
+    index,
+  }: ListRenderItemInfo<TFavoriteItem>) => {
     return (
       <BookDesign
+        testID={String(index)}
         image={item.image}
         name={item.title}
         onPress={() => handleFavoriteDetail(item)}
@@ -114,6 +123,7 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
 
       <View>
         <TextInput
+          testID="homeScreen__inputSearch"
           value={inputValue}
           placeholder="Busca"
           onChangeText={changeInput}
@@ -122,35 +132,34 @@ const HomeScreen = ({ navigation }: HomeScreenProps) => {
       </View>
 
       {!!search.length && (
-        <>
-          <View style={styles.searchView}>
-            <View style={styles.searchInfoView}>
-              <TouchableOpacity onPress={clearSearch}>
-                <Text style={styles.underlineText}>Limpar</Text>
-              </TouchableOpacity>
-            </View>
-
-            <View style={styles.searchResultView}>
-              <FlatList
-                data={search}
-                numColumns={2}
-                renderItem={renderBookSearch}
-                keyExtractor={item => `${item.id}`}
-                onEndReachedThreshold={0.5}
-                onEndReached={changePage}
-              />
-            </View>
+        <View style={styles.searchView}>
+          <View style={styles.searchInfoView}>
+            <TouchableOpacity onPress={clearSearch}>
+              <Text
+                testID="homeScreen__clearSearch"
+                style={styles.underlineText}>
+                Limpar
+              </Text>
+            </TouchableOpacity>
           </View>
-        </>
+
+          <View style={styles.searchResultView}>
+            <FlatList
+              testID="homeScreen__listItem"
+              data={search}
+              numColumns={2}
+              renderItem={renderBookSearch}
+              keyExtractor={item => `${item.id}`}
+              onEndReachedThreshold={0.5}
+              onEndReached={changePage}
+            />
+          </View>
+        </View>
       )}
       {!search.length && favoriteList.length > 0 && (
         <View style={styles.favoriteContainer}>
           <View style={styles.favoriteView}>
             <Text style={styles.favoriteText}>Favoritos</Text>
-
-            <TouchableOpacity onPress={() => console.log('')}>
-              <Text style={styles.underlineText}>Veja mais</Text>
-            </TouchableOpacity>
           </View>
 
           <View style={styles.favoriteListView}>

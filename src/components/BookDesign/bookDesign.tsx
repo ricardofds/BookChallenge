@@ -7,6 +7,7 @@ interface IBookDesignProps {
   image?: string;
   name: string;
   onPress(): void;
+  testID?: string;
 }
 
 export const imageDefault =
@@ -16,11 +17,12 @@ const BookDesign = ({
   image = imageDefault,
   name,
   onPress,
+  testID,
 }: IBookDesignProps) => {
   return (
     <TouchableOpacity
       style={styles.cardTouch}
-      testID="book_design__action"
+      testID={`book_design__action__${testID}`}
       onPress={onPress}>
       <Image
         testID="book_design__image"
