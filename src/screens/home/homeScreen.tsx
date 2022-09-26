@@ -23,7 +23,7 @@ import styles from './homeScreen.styles';
 import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import { storage } from '../../service/storage_service';
 
-type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Home'>;
+type HomeScreenProps = NativeStackScreenProps<RootStackParamList, 'Welcome'>;
 
 const HomeScreen = ({ navigation }: HomeScreenProps) => {
   const [search, setSearch] = useState<TSearchBookItems[]>([]);

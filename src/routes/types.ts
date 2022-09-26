@@ -6,5 +6,6 @@ export type TFavoriteItem = {
 
 export type RootStackParamList = {
   Home: undefined;
+  Welcome: undefined;
   BookDetail: { id: string; title: string };
 };

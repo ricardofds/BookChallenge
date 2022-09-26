@@ -15,7 +15,7 @@ const Tabs = () => {
       screenOptions={({ route }) => ({
         tabBarIcon: () => {
           switch (route.name) {
-            case 'Home':
+            case 'Welcome':
               return <Image source={HomeIcon} style={styles.homeIcon} />;
           }
         },
@@ -23,7 +23,7 @@ const Tabs = () => {
         tabBarInactiveTintColor: 'gray',
         headerShown: false,
       })}>
-      <Tab.Screen name="Home" component={HomeScreen} />
+      <Tab.Screen name="Welcome" component={HomeScreen} />
     </Tab.Navigator>
   );
 };
